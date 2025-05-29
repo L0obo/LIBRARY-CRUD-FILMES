@@ -1,7 +1,8 @@
-const API_URL = 'https://refactored-giggle-jjjj7v57v7qrfpr7q-3000.app.github.dev/movies';
+const API_URL = 'https://potential-acorn-g444rjqrjp9q39996-3000.app.github.dev/movies';
 
 export const getMovies = async () => {
   const res = await fetch(API_URL);
+  console.log('Response status:', res); // Log do status da resposta
   return await res.json();
 };
 
