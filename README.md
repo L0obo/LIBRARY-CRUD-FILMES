@@ -66,7 +66,7 @@ npm install
 ### 6. Inicie o app React Native
 
 ```bash
-npx expo start
+npx expo start --tuneel
 ```
 
 > O app abrirá no navegador. Use o QR Code com o Expo Go ou rode em um emulador.
