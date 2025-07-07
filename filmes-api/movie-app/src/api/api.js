@@ -1,5 +1,5 @@
 // movie-app/src/api/api.js
-const API_BASE_URL = 'https://potential-space-cod-q7774jq4j4rg345v9-3000.app.github.dev'; 
+const API_BASE_URL = 'https://ideal-fishstick-x555p7wp7pgvhvr7r-3000.app.github.dev'; 
 
 // --- Funções para a galeria particular (/movies) ---
 export const getMovies = async () => {

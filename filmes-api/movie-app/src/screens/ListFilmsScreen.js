@@ -1,7 +1,7 @@
 // movie-app/src/screens/ListFilmsScreen.js
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, FlatList, StyleSheet, ActivityIndicator, StatusBar, TouchableOpacity, Text, TextInput } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient'; // <-- IMPORTAÇÃO ADICIONADA
 import { getPopularMovies, searchMovies, getGenres, getMoviesByGenre } from '../api/tmdbApi';
 import { createMovie, getMovies, getWatchedMovies, deleteMovie } from '../api/api';
 import MovieItem from '../components/MovieItem';
@@ -57,6 +57,7 @@ export default function ListFilmsScreen({ navigation }) {
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', fetchInitialData);
+    fetchInitialData(); // Garante que os dados são carregados na primeira vez
     return unsubscribe;
   }, [navigation, fetchInitialData]);
 
@@ -111,8 +112,8 @@ export default function ListFilmsScreen({ navigation }) {
         posterURL: movieToSave.poster_path,
         tmdbId: movieToSave.id,
       };
-      await createMovie(newMovie);
-      await fetchInitialData();
+      const savedMovie = await createMovie(newMovie);
+      setMyMovies(prev => [...prev, savedMovie]);
     } catch (error) {
       console.error('Erro ao salvar o filme:', error.message);
     } finally {
@@ -126,7 +127,7 @@ export default function ListFilmsScreen({ navigation }) {
     setSavingMovieId(movieToRemove.id);
     try {
         await deleteMovie(movieInMyList.id);
-        await fetchInitialData();
+        setMyMovies(prev => prev.filter(m => m.id !== movieInMyList.id));
     } catch (error) {
         console.error('Erro ao remover o filme:', error.message);
     } finally {
@@ -190,10 +191,7 @@ export default function ListFilmsScreen({ navigation }) {
 
   if (initialLoading) {
     return (
-      <LinearGradient
-        colors={[colors.background, '#0A1828', colors.primary]}
-        style={styles.gradient}
-      >
+      <LinearGradient colors={[colors.background, '#0A1828', colors.primary]} style={styles.gradient}>
         <View style={styles.centered}>
           <ActivityIndicator size="large" color={colors.primary} />
         </View>
@@ -202,10 +200,7 @@ export default function ListFilmsScreen({ navigation }) {
   }
 
   return (
-    <LinearGradient
-      colors={[colors.background, '#0A1828', colors.primary]}
-      style={styles.gradient}
-    >
+    <LinearGradient colors={[colors.background, '#0A1828', colors.primary]} style={styles.gradient}>
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <TextInput
@@ -215,7 +210,6 @@ export default function ListFilmsScreen({ navigation }) {
           value={searchQuery}
           onChangeText={setSearchQuery}
         />
-        
         <View>
           <FlatList
             data={genres}
@@ -226,9 +220,7 @@ export default function ListFilmsScreen({ navigation }) {
             contentContainerStyle={styles.genresContainer}
           />
         </View>
-
         {renderContent()}
-
         <TouchableOpacity style={styles.fab} onPress={() => navigation.navigate('Novo Filme')}>
           <Text style={styles.fabIcon}>+</Text>
         </TouchableOpacity>
@@ -238,19 +230,9 @@ export default function ListFilmsScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  gradient: {
-    flex: 1,
-  },
-  container: { 
-    flex: 1, 
-    backgroundColor: 'transparent' 
-  },
-  centered: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    backgroundColor: 'transparent' 
-  },
+  gradient: { flex: 1 },
+  container: { flex: 1, backgroundColor: 'transparent' },
+  centered: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' },
   listContainer: { paddingHorizontal: ITEM_MARGIN_HORIZONTAL, paddingTop: 15, paddingBottom: 80 },
   searchInput: { backgroundColor: colors.primary, color: colors.accent, marginHorizontal: 15, marginTop: 15, paddingHorizontal: 20, paddingVertical: 12, borderRadius: 25, fontSize: 16 },
   genresContainer: { paddingHorizontal: 15, paddingVertical: 10 },

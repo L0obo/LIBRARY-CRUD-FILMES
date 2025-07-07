@@ -7,13 +7,6 @@
     "id": 15
   },
   {
-    "title": "Jurassic World: Recomeço",
-    "year": 2025,
-    "posterURL": "/g81Wxr9rskMsmKx3RoPZP6PnlkX.jpg",
-    "tmdbId": 1234821,
-    "id": 23
-  },
-  {
     "title": "Guerreiras do K-Pop",
     "year": 2025,
     "posterURL": "/iJSqkmLwgqj9MwARySBXMkYO7mG.jpg",
@@ -56,10 +49,17 @@
     "id": 39
   },
   {
+    "title": "Jurassic World: Recomeço",
+    "year": 2025,
+    "posterURL": "/g81Wxr9rskMsmKx3RoPZP6PnlkX.jpg",
+    "tmdbId": 1234821,
+    "id": 41
+  },
+  {
     "title": "The Old Guard 2",
     "year": 2025,
     "posterURL": "/wqfu3bPLJaEWJVk3QOm0rKhxf1A.jpg",
     "tmdbId": 846422,
-    "id": 40
+    "id": 42
   }
 ]
