@@ -190,3 +190,4 @@ const styles = StyleSheet.create({
   watchButton: { backgroundColor: '#1E5A2D', marginBottom: 10 },
   closeButtonText: { color: colors.accent, fontWeight: 'bold', textAlign: 'center', fontSize: 16 },
 });
+s

@@ -59,3 +59,4 @@ const styles = StyleSheet.create({
   button: { backgroundColor: colors.primary, paddingVertical: 15, paddingHorizontal: 30, borderRadius: 25, width: '90%', alignItems: 'center', marginBottom: 20, elevation: 5, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.3 },
   buttonText: { color: colors.accent, fontSize: 16, fontWeight: '600' },
 });
+s

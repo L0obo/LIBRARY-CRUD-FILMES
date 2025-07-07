@@ -63,3 +63,4 @@ export const deleteWatchedMovie = async (id) => {
     const res = await fetch(`${API_BASE_URL}/watched/${id}`, { method: 'DELETE' });
     if (!res.ok) throw new Error('Falha ao remover da lista de assistidos');
 };
+s
