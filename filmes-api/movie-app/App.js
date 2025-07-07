@@ -101,4 +101,3 @@ const styles = StyleSheet.create({
         backgroundColor: colors.background,
     }
 });
-s

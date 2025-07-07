@@ -24,4 +24,3 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background, // Cor de fallback
   },
 });
-v

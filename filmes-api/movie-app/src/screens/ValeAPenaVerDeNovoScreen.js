@@ -130,4 +130,3 @@ const styles = StyleSheet.create({
   closeButton: { backgroundColor: colors.primary, borderRadius: 10, paddingVertical: 12, paddingHorizontal: 30, elevation: 2 },
   closeButtonText: { color: colors.accent, fontWeight: 'bold', textAlign: 'center', fontSize: 16 },
 });
-s

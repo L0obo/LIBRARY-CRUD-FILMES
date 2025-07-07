@@ -172,4 +172,3 @@ const styles = StyleSheet.create({
     overviewTitle: { fontSize: 20, fontWeight: 'bold', color: colors.accent, marginBottom: 10 },
     overview: { fontSize: 16, color: colors.secondary, lineHeight: 24 },
 });
-s

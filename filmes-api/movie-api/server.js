@@ -23,4 +23,3 @@ app.use('/watched', watchedRoutes); // <-- ADICIONAR ESTA LINHA
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
-s
